@@ -1,0 +1,26 @@
+.dashboard_maindiv_header {
+  display: flex;
+  justify-content: center;
+}
+
+.grid_for_dashboard {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 100px;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+.main_divfor_dashboard {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.piechart_maindiv {
+  width: 250px;
+  margin-left: 70px;
+}
+
+.piechart_subgrid {
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px #aaaaaa;
+  padding: 20px;
+}

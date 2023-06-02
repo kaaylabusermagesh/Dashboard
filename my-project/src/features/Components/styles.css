@@ -1,0 +1,27 @@
+.sub_box {
+  background-color: white;
+  border-radius: 25px;
+  height: 99vh;
+}
+.grid_styles_div {
+  border: 1px;
+  border-radius: 10px;
+  background-color: white;
+}
+.bodybottom_mainbox {
+  border: 1px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 20px 10px 10px 20px;
+}
+.grid_spacing {
+  margin: 15px !important;
+}
+.main_grid_container {
+  background-color: #f7f7f7;
+  border: 1px;
+}
+.main_gridfor_body {
+  height: 80vh;
+  overflow-y: scroll;
+}
