@@ -16,7 +16,7 @@ function Bodybottom() {
     {
       avatar: "E",
       avatarColor: "#617FF2",
-      abbre: "BTC",
+      abbre: "ETH",
       name: "Ethereum",
       price: " $16,000",
       change: "-2.99%",
@@ -25,7 +25,7 @@ function Bodybottom() {
     {
       avatar: "A",
       avatarColor: "#7142FE",
-      abbre: "BTC",
+      abbre: "ADA",
       name: "Caidona",
       price: "$0,9000",
       change: "+23.37%",
@@ -34,7 +34,7 @@ function Bodybottom() {
     {
       avatar: "A",
       avatarColor: "#F1706E",
-      abbre: "BTC",
+      abbre: "Avax",
       name: "Avalanche",
       price: " $43,000",
       change: "+41.37%",
@@ -51,7 +51,7 @@ function Bodybottom() {
                 sx={{
                   width: 32,
                   height: 32,
-                  backgroundColor: "#F39B40",
+                  backgroundColor: arr.avatarColor,
                   fontSize: "12px",
                 }}
               >

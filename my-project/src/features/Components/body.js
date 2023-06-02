@@ -4,176 +4,134 @@ import Bodybottom from "./bodybottom";
 import { PieChart } from "react-minimal-pie-chart";
 
 function BodyComponent() {
+  const [arrayList1] = useState([
+    {
+      avatar: "B",
+      avatarColor: "#F39B40",
+      name: "Bitcoin",
+      code: "17.6859 BTC",
+      price: "$434.456.0",
+      percentage: " +1.29%",
+      percentageColor: "green",
+      percentagebg: "#E1EFEB",
+    },
+    {
+      avatar: "E",
+      avatarColor: "#5F85F1",
+      name: "Ethereum",
+      code: "132.789 ETH",
+      price: "$324.654.0",
+      percentage: "-0.34%",
+      percentageColor: "#F4B7BA",
+      percentagebg: "#FFEAED",
+    },
+    {
+      avatar: "A",
+      avatarColor: "#F34033",
+      name: "Avalanche",
+      code: "342.64 AVAX",
+      price: "$132.76.0",
+      percentage: "-0.23%",
+      percentageColor: "#F4B7BA",
+      percentagebg: "#FFEAED",
+    },
+  ]);
+
+  const [currencies] = useState([
+    {
+      avatar: "B",
+      abbre: "BTC",
+      avatarColor: "#F39B40",
+      name: "Bitcoin",
+      percentage: "+3.12%",
+    },
+    {
+      avatar: "E",
+      abbre: "ETH",
+      avatarColor: "#8451F4",
+      name: "Ethereum",
+      percentage: "+2.32%",
+    },
+    {
+      avatar: "U",
+      abbre: "USDT",
+      avatarColor: "#C045FF",
+      name: "Tether",
+      percentage: "+1.32%",
+    },
+  ]);
   return (
     <Box>
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <Grid container spacing={2}>
-            <Grid
-              item
-              xs={3.7}
-              className="grid_styles_div"
-              sx={{ marginLeft: "16px" }}
-            >
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Avatar
-                  sx={{
-                    width: 24,
-                    height: 24,
-                    backgroundColor: "orange",
-                    fontSize: "12px",
-                  }}
-                >
-                  B
-                </Avatar>
-                <Typography
-                  sx={{ margin: "0px 0px 0px 10px", fontWeight: "bold" }}
-                >
-                  Bitcoin
-                </Typography>
-              </Grid>
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Grid>
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    17.6859 BTC
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: "12px", color: "gray", marginLeft: "3px" }}
-                  >
-                    $434.456.0
-                  </Typography>
-                </Grid>
+            {arrayList1.map((arr) => {
+              return (
                 <Grid
-                  sx={{
-                    width: "45px",
-                    backgroundColor: "#E1EFEB",
-                    height: "15px",
-                    borderRadius: "10px",
-                    margin: "15px 0px 0px 20px",
-                  }}
+                  item
+                  xs={3.7}
+                  className="grid_styles_div"
+                  sx={{ marginLeft: "16px" }}
                 >
-                  <Typography
-                    sx={{ color: "green", fontSize: "10px", marginLeft: "5px" }}
-                  >
-                    +1.29%
-                  </Typography>
+                  <Grid sx={{ display: "flex", margin: "10px" }}>
+                    <Avatar
+                      sx={{
+                        width: 24,
+                        height: 24,
+                        backgroundColor: arr.avatarColor,
+                        fontSize: "12px",
+                      }}
+                    >
+                      {arr.avatar}
+                    </Avatar>
+                    <Typography
+                      sx={{ margin: "0px 0px 0px 10px", fontWeight: "bold" }}
+                    >
+                      {arr.name}
+                    </Typography>
+                  </Grid>
+                  <Grid sx={{ display: "flex", margin: "10px" }}>
+                    <Grid>
+                      <Typography sx={{ fontWeight: "bold" }}>
+                        {arr.code}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: "12px",
+                          color: "gray",
+                          marginLeft: "3px",
+                        }}
+                      >
+                        {arr.price}
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        width: "45px",
+                        backgroundColor: arr.percentagebg,
+                        height: "15px",
+                        borderRadius: "10px",
+                        margin: "15px 0px 0px 20px",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: arr.percentageColor,
+                          fontSize: "10px",
+                          marginLeft: "5px",
+                        }}
+                      >
+                        {arr.percentage}
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Grid>
-            <Grid
-              item
-              xs={3.7}
-              className="grid_styles_div"
-              sx={{ marginLeft: "16px" }}
-            >
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Avatar
-                  sx={{
-                    width: 24,
-                    height: 24,
-                    backgroundColor: "#5F85F1",
-                    fontSize: "12px",
-                  }}
-                >
-                  E
-                </Avatar>
-                <Typography
-                  sx={{ margin: "0px 0px 0px 10px", fontWeight: "bold" }}
-                >
-                  Ethereum
-                </Typography>
-              </Grid>
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Grid>
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    132.789 ETH
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: "12px", color: "gray", marginLeft: "3px" }}
-                  >
-                    $324.654.0
-                  </Typography>
-                </Grid>
-                <Grid
-                  sx={{
-                    width: "45px",
-                    backgroundColor: "#FFEAED",
-                    height: "15px",
-                    borderRadius: "10px",
-                    margin: "15px 0px 0px 20px",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "#F4B7BA",
-                      fontSize: "10px",
-                      marginLeft: "5px",
-                    }}
-                  >
-                    -0.34%
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid
-              item
-              xs={3.7}
-              className="grid_styles_div"
-              sx={{ marginLeft: "16px" }}
-            >
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Avatar
-                  sx={{
-                    width: 24,
-                    height: 24,
-                    backgroundColor: "#F34033",
-                    fontSize: "12px",
-                  }}
-                >
-                  A
-                </Avatar>
-                <Typography
-                  sx={{ margin: "0px 0px 0px 10px", fontWeight: "bold" }}
-                >
-                  Avalanche
-                </Typography>
-              </Grid>
-              <Grid sx={{ display: "flex", margin: "10px" }}>
-                <Grid>
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    342.64 AVAX
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: "12px", color: "gray", marginLeft: "3px" }}
-                  >
-                    $132.76.0
-                  </Typography>
-                </Grid>
-                <Grid
-                  sx={{
-                    width: "45px",
-                    backgroundColor: "#FFEAED",
-                    height: "15px",
-                    borderRadius: "10px",
-                    margin: "15px 0px 0px 20px",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "#F4B7BA",
-                      fontSize: "10px",
-                      marginLeft: "5px",
-                    }}
-                  >
-                    -0.23%
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
+              );
+            })}
           </Grid>
           <Grid
             className="grid_styles_div"
-            sx={{ margin: "10px 10px 0px 20px", display: "flex" }}
+            sx={{ margin: "10px 10px 0px 5px", display: "flex" }}
           >
             <Grid item xs={6}>
               <Grid sx={{ display: "flex" }}>
@@ -288,135 +246,53 @@ function BodyComponent() {
                     3 Currencies
                   </Typography>
                   <Grid>
-                    <Grid sx={{ display: "flex", marginTop: "10px" }}>
-                      <Grid sx={{ display: "flex" }}>
-                        <Avatar
-                          sx={{
-                            width: 24,
-                            height: 24,
-                            backgroundColor: "orange",
-                            fontSize: "12px",
-                          }}
-                        >
-                          B
-                        </Avatar>
-                        <Grid>
+                    {currencies.map((curr) => {
+                      return (
+                        <Grid sx={{ display: "flex", marginTop: "10px" }}>
+                          <Grid sx={{ display: "flex" }}>
+                            <Avatar
+                              sx={{
+                                width: 24,
+                                height: 24,
+                                backgroundColor: curr.avatarColor,
+                                fontSize: "12px",
+                              }}
+                            >
+                              {curr.avatar}
+                            </Avatar>
+                            <Grid>
+                              <Typography
+                                sx={{
+                                  fontSize: "12px",
+                                  fontWeight: "bold",
+                                  margin: "0px 10px 0px 10px",
+                                }}
+                              >
+                                {curr.abbre}
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontSize: "12px",
+                                  color: "gray",
+                                  margin: "0px 10px 0px 10px",
+                                }}
+                              >
+                                {curr.name}
+                              </Typography>
+                            </Grid>
+                          </Grid>
                           <Typography
                             sx={{
-                              fontSize: "12px",
-                              fontWeight: "bold",
-                              margin: "0px 10px 0px 10px",
+                              color: "green",
+                              margin: "10px 0px 0px 70px",
+                              fontSize: "10px",
                             }}
                           >
-                            BTC
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              color: "gray",
-                              margin: "0px 10px 0px 10px",
-                            }}
-                          >
-                            Bitcoin
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Typography
-                        sx={{
-                          color: "green",
-                          margin: "10px 0px 0px 70px",
-                          fontSize: "10px",
-                        }}
-                      >
-                        +3.12%
-                      </Typography>
-                    </Grid>
-                    <Grid sx={{ display: "flex", marginTop: "10px" }}>
-                      <Grid sx={{ display: "flex" }}>
-                        <Avatar
-                          sx={{
-                            width: 24,
-                            height: 24,
-                            backgroundColor: "#8451F4",
-                            fontSize: "12px",
-                          }}
-                        >
-                          E
-                        </Avatar>
-                        <Grid>
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: "bold",
-                              margin: "0px 10px 0px 10px",
-                            }}
-                          >
-                            ETH
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              color: "gray",
-                              margin: "0px 10px 0px 10px",
-                            }}
-                          >
-                            Ethereum
+                            {curr.percentage}
                           </Typography>
                         </Grid>
-                      </Grid>
-                      <Typography
-                        sx={{
-                          color: "green",
-                          margin: "10px 0px 0px 70px",
-                          fontSize: "10px",
-                        }}
-                      >
-                        +2.32%
-                      </Typography>
-                    </Grid>
-                    <Grid sx={{ display: "flex", marginTop: "10px" }}>
-                      <Grid sx={{ display: "flex" }}>
-                        <Avatar
-                          sx={{
-                            width: 24,
-                            height: 24,
-                            backgroundColor: "#C045FF",
-                            fontSize: "12px",
-                          }}
-                        >
-                          U
-                        </Avatar>
-                        <Grid>
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              fontWeight: "bold",
-                              margin: "0px 10px 0px 10px",
-                            }}
-                          >
-                            USDT
-                          </Typography>
-                          <Typography
-                            sx={{
-                              fontSize: "12px",
-                              color: "gray",
-                              margin: "0px 10px 0px 10px",
-                            }}
-                          >
-                            Tether
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                      <Typography
-                        sx={{
-                          color: "green",
-                          margin: "10px 0px 0px 70px",
-                          fontSize: "10px",
-                        }}
-                      >
-                        +1.32%
-                      </Typography>
-                    </Grid>
+                      );
+                    })}
                   </Grid>
                 </Grid>
               </Grid>
