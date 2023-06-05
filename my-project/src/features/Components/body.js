@@ -1,65 +1,15 @@
 import { Avatar, Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import Bodybottom from "./bodybottom";
 import { PieChart } from "react-minimal-pie-chart";
+import Data from "./data.json";
 
 function BodyComponent() {
-  const [arrayList1] = useState([
-    {
-      avatar: "B",
-      avatarColor: "#F39B40",
-      name: "Bitcoin",
-      code: "17.6859 BTC",
-      price: "$434.456.0",
-      percentage: " +1.29%",
-      percentageColor: "green",
-      percentagebg: "#E1EFEB",
-    },
-    {
-      avatar: "E",
-      avatarColor: "#5F85F1",
-      name: "Ethereum",
-      code: "132.789 ETH",
-      price: "$324.654.0",
-      percentage: "-0.34%",
-      percentageColor: "#F4B7BA",
-      percentagebg: "#FFEAED",
-    },
-    {
-      avatar: "A",
-      avatarColor: "#F34033",
-      name: "Avalanche",
-      code: "342.64 AVAX",
-      price: "$132.76.0",
-      percentage: "-0.23%",
-      percentageColor: "#F4B7BA",
-      percentagebg: "#FFEAED",
-    },
-  ]);
+  const arrayList1 = Data.Carddata;
+  const currencies = Data.currencies;
+  const cardData = Data.CardList;
+  const pievalue = Data.Piedata;
 
-  const [currencies] = useState([
-    {
-      avatar: "B",
-      abbre: "BTC",
-      avatarColor: "#F39B40",
-      name: "Bitcoin",
-      percentage: "+3.12%",
-    },
-    {
-      avatar: "E",
-      abbre: "ETH",
-      avatarColor: "#8451F4",
-      name: "Ethereum",
-      percentage: "+2.32%",
-    },
-    {
-      avatar: "U",
-      abbre: "USDT",
-      avatarColor: "#C045FF",
-      name: "Tether",
-      percentage: "+1.32%",
-    },
-  ]);
   return (
     <Box>
       <Grid container spacing={2}>
@@ -156,70 +106,42 @@ function BodyComponent() {
                 USD 14.244,55
               </Typography>
               <Grid container sx={{ margin: "10% 0px 6% 4%" }} spacing={2}>
-                <Grid item xs={6}>
-                  <Grid sx={{ display: "flex" }}>
-                    <Avatar
-                      sx={{
-                        width: 24,
-                        height: 24,
-                        backgroundColor: "#FFE1E2",
-                        fontSize: "12px",
-                      }}
-                    >
-                      I
-                    </Avatar>
-                    <Typography
-                      sx={{
-                        fontSize: "10px",
-                        margin: "2% 0px 0px 3%",
-                        color: "gray",
-                      }}
-                    >
-                      Income
-                    </Typography>
-                  </Grid>
-                  <Typography
-                    sx={{
-                      fontSize: "14px",
-                      margin: "4% 0px 0px 3%",
-                      fontWeight: "500",
-                    }}
-                  >
-                    USD 13.132,22
-                  </Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Grid sx={{ display: "flex" }}>
-                    <Avatar
-                      sx={{
-                        width: 24,
-                        height: 24,
-                        backgroundColor: "#EAEEED",
-                        fontSize: "12px",
-                      }}
-                    >
-                      E
-                    </Avatar>
-                    <Typography
-                      sx={{
-                        fontSize: "10px",
-                        margin: "2% 0px 0px 3%",
-                        color: "gray",
-                      }}
-                    >
-                      Expense
-                    </Typography>
-                  </Grid>
-                  <Typography
-                    sx={{
-                      fontSize: "14px",
-                      margin: "4% 0px 0px 3%",
-                      fontWeight: "500",
-                    }}
-                  >
-                    USD 2.212,43
-                  </Typography>
-                </Grid>
+                {cardData.map((val) => {
+                  return (
+                    <Grid item xs={6}>
+                      <Grid sx={{ display: "flex" }}>
+                        <Avatar
+                          sx={{
+                            width: 24,
+                            height: 24,
+                            backgroundColor: val.avatarColor,
+                            fontSize: "12px",
+                          }}
+                        >
+                          {val.avatar}
+                        </Avatar>
+                        <Typography
+                          sx={{
+                            fontSize: "10px",
+                            margin: "2% 0px 0px 3%",
+                            color: "gray",
+                          }}
+                        >
+                          {val.name}
+                        </Typography>
+                      </Grid>
+                      <Typography
+                        sx={{
+                          fontSize: "14px",
+                          margin: "4% 0px 0px 3%",
+                          fontWeight: "500",
+                        }}
+                      >
+                        {val.value}
+                      </Typography>
+                    </Grid>
+                  );
+                })}
               </Grid>
             </Grid>
             <Grid item xs={6}>
@@ -320,13 +242,7 @@ function BodyComponent() {
             </Typography>
           </Grid>
           <Grid sx={{ width: "200px", margin: "20px 0px 0px 80px" }}>
-            <PieChart
-              data={[
-                { title: "One", value: 10, color: "#E38627" },
-                { title: "Two", value: 15, color: "#C13C37" },
-                { title: "Three", value: 20, color: "#6A2135" },
-              ]}
-            />
+            <PieChart data={pievalue} />
           </Grid>
         </Grid>
       </Grid>

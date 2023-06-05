@@ -4,22 +4,27 @@ import Navbar from "./navbar";
 import "./styles.css";
 import Header from "./header";
 import BodyComponent from "./body";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function Assignment() {
   return (
-    <Box className="main_box">
-      <Grid container className="sub_box" spacing={1}>
-        <Grid item xs={2} sx={{ backgroundColor: "white" }}>
-          <Navbar />
-        </Grid>
-        <Grid item xs={10} sx={{ backgroundColor: "#F9FAFC" }}>
-          <Header />
-          <Grid className="main_gridfor_body">
-            <BodyComponent />
+    <BrowserRouter>
+      <Box className="main_box">
+        <Grid container className="sub_box" spacing={1}>
+          <Grid item xs={2} sx={{ backgroundColor: "white" }}>
+            <Navbar />
+          </Grid>
+          <Grid item xs={10} sx={{ backgroundColor: "#F9FAFC" }}>
+            <Header />
+            <Grid className="main_gridfor_body">
+              <Routes>
+                <Route path="/" element={<BodyComponent />}></Route>
+              </Routes>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </BrowserRouter>
   );
 }
 

@@ -1,46 +1,10 @@
 import { Avatar, Box, Button, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import "./styles.css";
+import Data from "./data.json";
 
 function Bodybottom() {
-  const [arrayList] = useState([
-    {
-      avatar: "B",
-      avatarColor: "#F39B40",
-      abbre: "BTC",
-      name: "Bitcoin",
-      price: "$27,000",
-      change: "+20.37%",
-      changehours: "+19.37%",
-    },
-    {
-      avatar: "E",
-      avatarColor: "#617FF2",
-      abbre: "ETH",
-      name: "Ethereum",
-      price: " $16,000",
-      change: "-2.99%",
-      changehours: "-19.37%",
-    },
-    {
-      avatar: "A",
-      avatarColor: "#7142FE",
-      abbre: "ADA",
-      name: "Caidona",
-      price: "$0,9000",
-      change: "+23.37%",
-      changehours: "+21.37%",
-    },
-    {
-      avatar: "A",
-      avatarColor: "#F1706E",
-      abbre: "Avax",
-      name: "Avalanche",
-      price: " $43,000",
-      change: "+41.37%",
-      changehours: "+38.37%",
-    },
-  ]);
+  const arrayList = Data.Tabledata;
   return (
     <Box className="bodybottom_mainbox">
       {arrayList.map((arr) => {
