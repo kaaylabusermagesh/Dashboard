@@ -6,7 +6,7 @@ import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 
 function Header() {
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <TextField
@@ -23,10 +23,10 @@ function Header() {
         </Grid>
         <Grid item xs={6} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <Grid sx={{ margin: "20px 0px 0px 20px" }}>
-            <MessageRoundedIcon />
+            <MessageRoundedIcon sx={{ color: "black" }} />
           </Grid>
           <Grid sx={{ margin: "20px 0px 0px 20px" }}>
-            <NotificationsRoundedIcon />
+            <NotificationsRoundedIcon sx={{ color: "black" }} />
           </Grid>
           <Grid sx={{ margin: "15px 40px 0px 20px" }}>
             <Avatar>K</Avatar>

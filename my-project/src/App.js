@@ -1,13 +1,13 @@
 import { Box } from "@mui/material";
 import "./App.css";
-// import Dashboard from './features/dashboard';
-import Assignment from "./features/Components/main";
+import Navbar from "./features/Components/navbar";
 
 function App() {
   return (
     <Box>
       {/* <Dashboard /> */}
-      <Assignment />
+      {/* <Assignment /> */}
+      <Navbar />
     </Box>
   );
 }
