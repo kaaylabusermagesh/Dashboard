@@ -173,7 +173,7 @@ export default function Navbar() {
 
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <Grid sx={{ display: "flex", margin: "0px 0px 0px 0px" }}>
+          <Grid sx={{ display: "flex", margin: "0px 30px 0px 0px" }}>
             <Grid>
               <Avatar>K</Avatar>
             </Grid>

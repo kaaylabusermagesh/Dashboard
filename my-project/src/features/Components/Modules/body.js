@@ -3,6 +3,19 @@ import React from "react";
 import Bodybottom from "./bodybottom";
 import { PieChart } from "react-minimal-pie-chart";
 import Data from "../data.json";
+import { Chart } from "react-google-charts";
+
+export const data = [
+  ["Task", "Hours per Day"],
+  ["A", 5],
+  ["B", 5],
+  ["C", 5],
+];
+
+export const options = {
+  pieHole: 0.7,
+  is3D: false,
+};
 
 function BodyComponent() {
   const arrayList1 = Data.Carddata;
@@ -83,7 +96,7 @@ function BodyComponent() {
             className="grid_styles_div"
             sx={{ margin: "10px 10px 0px 5px", display: "flex" }}
           >
-            <Grid item xs={6}>
+            <Grid item xs={4}>
               <Grid sx={{ display: "flex" }}>
                 <Grid sx={{ margin: "2% 0px 0px 4%" }}>
                   <Typography sx={{ fontSize: "14px", fontWeight: "bold" }}>
@@ -144,9 +157,9 @@ function BodyComponent() {
                 })}
               </Grid>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={8}>
               <Grid sx={{ display: "flex" }}>
-                <Grid>
+                <Grid item xs={6}>
                   <Typography
                     sx={{
                       fontSize: "12px",
@@ -156,8 +169,17 @@ function BodyComponent() {
                   >
                     Wallet
                   </Typography>
+                  <Grid>
+                    <Chart
+                      chartType="PieChart"
+                      width="100%"
+                      height="150px"
+                      data={data}
+                      options={options}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid sx={{ margin: "10px 10px 0px 80px" }}>
+                <Grid sx={{ margin: "10px 10px 0px 0px" }} item xs={6}>
                   <Typography
                     sx={{
                       fontSize: "12px",
