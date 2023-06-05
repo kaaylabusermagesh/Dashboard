@@ -21,8 +21,21 @@ function BodyComponent() {
   const arrayList1 = Data.Carddata;
   const currencies = Data.currencies;
   const cardData = Data.CardList;
-  const pievalue = Data.Piedata;
+  // const pievalue = Data.Piedata;
 
+  const data1 = [
+    ["Month", "Binance", "Litecoin"],
+    ["Jan", 1, 0],
+    ["Feb", 3, 0],
+    ["Mar", 7, 0],
+    ["Apr", 1, 0],
+  ];
+
+  const options1 = {
+    title: "Company Performance",
+    curveType: "function",
+    legend: { position: "bottom" },
+  };
   return (
     <Box>
       <Grid container spacing={1}>
@@ -263,8 +276,15 @@ function BodyComponent() {
               Monthly
             </Typography>
           </Grid>
-          <Grid sx={{ width: "200px", margin: "20px 0px 0px 80px" }}>
-            <PieChart data={pievalue} />
+          <Grid sx={{ width: "320px", margin: "0px 0px 0px 10px" }}>
+            {/* <PieChart data={pievalue} /> */}
+            <Chart
+              chartType="LineChart"
+              width="100%"
+              height="200px"
+              data={data1}
+              options={options1}
+            />
           </Grid>
         </Grid>
       </Grid>
