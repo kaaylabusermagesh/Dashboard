@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Grid, Typography } from "@mui/material";
 import React from "react";
-import "./styles.css";
-import Data from "./data.json";
+import "../styles.css";
+import Data from "../data.json";
 
 function Bodybottom() {
   const arrayList = Data.Tabledata;
@@ -80,6 +80,10 @@ function Bodybottom() {
                   backgroundColor: "white",
                   color: "black",
                   textTransform: "none",
+                  "&:hover": {
+                    backgroundColor: "white !important",
+                    color: "black !important",
+                  },
                 }}
               >
                 Sell

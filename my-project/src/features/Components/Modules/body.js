@@ -2,7 +2,7 @@ import { Avatar, Box, Grid, Typography } from "@mui/material";
 import React from "react";
 import Bodybottom from "./bodybottom";
 import { PieChart } from "react-minimal-pie-chart";
-import Data from "./data.json";
+import Data from "../data.json";
 
 function BodyComponent() {
   const arrayList1 = Data.Carddata;

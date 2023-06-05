@@ -1,6 +1,6 @@
 import Header from "./header";
 import * as React from "react";
-import { Grid } from "@mui/material";
+import { Avatar, Grid, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -24,7 +24,6 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import GroupAddRoundedIcon from "@mui/icons-material/GroupAddRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import Assignment from "./main";
-import Assets from "./AssetComponent";
 
 const drawerWidth = 230;
 
@@ -95,7 +94,6 @@ const Drawer = styled(MuiDrawer, {
 export default function Navbar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [navIndex, setNavIndex] = React.useState();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,37 +111,39 @@ export default function Navbar() {
     {
       component: <GridViewRoundedIcon />,
       title: "Dashboard",
+      nav: "/",
     },
     {
       component: <WebAssetRoundedIcon />,
       title: "Asset",
+      nav: "/assets",
     },
     {
       component: <AutoGraphRoundedIcon />,
       title: "Trade",
+      nav: "/trade",
     },
     {
       component: <PaymentRoundedIcon />,
       title: "Pay",
+      nav: "/pay",
     },
     {
       component: <SendRoundedIcon />,
       title: "For You",
+      nav: "/foryou",
     },
     {
       component: <GroupAddRoundedIcon />,
       title: "Invite Friends",
+      nav: "/invite",
     },
     {
       component: <SettingsRoundedIcon />,
       title: "Settings",
+      nav: "/settings",
     },
   ]);
-
-  const handleClickSideNavbar = (i) => {
-    console.log("This is the index of the side nav bar", i);
-    setNavIndex(i);
-  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -170,8 +170,17 @@ export default function Navbar() {
           <Header />
         </Toolbar>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
+          <Grid sx={{ display: "flex", margin: "0px 0px 0px 0px" }}>
+            <Grid>
+              <Avatar>K</Avatar>
+            </Grid>
+            <Grid sx={{ margin: "10px 0px 0px 10px" }}>
+              <Typography sx={{ fontWeight: "bold" }}>Hylesoin</Typography>
+            </Grid>
+          </Grid>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
@@ -189,7 +198,7 @@ export default function Navbar() {
                   justifyContent: open ? "initial" : "center",
                   px: 2.5,
                 }}
-                onClick={() => handleClickSideNavbar(i)}
+                href={text.nav}
               >
                 <ListItemIcon
                   sx={{
@@ -215,13 +224,7 @@ export default function Navbar() {
       >
         <DrawerHeader />
         <Grid className="main_gridfor_body">
-          {navIndex === 0 ? (
-            <Assignment />
-          ) : navIndex === 1 ? (
-            <Assets />
-          ) : (
-            <Assignment />
-          )}
+          <Assignment />
         </Grid>
       </Box>
     </Box>

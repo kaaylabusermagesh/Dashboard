@@ -5,8 +5,6 @@ import Navbar from "./features/Components/navbar";
 function App() {
   return (
     <Box>
-      {/* <Dashboard /> */}
-      {/* <Assignment /> */}
       <Navbar />
     </Box>
   );
