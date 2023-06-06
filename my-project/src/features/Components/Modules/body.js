@@ -77,6 +77,8 @@ const BodyComponent = () => {
       arrayListSample[0].changehours =
         parseInt(arrayListSample[0].changehours) + parseInt(changeHours);
       arrayList1Sample[0].price = arrayListSample[0].price;
+      arrayList1Sample[0].code = arrayListSample[0].price;
+      arrayList1Sample[0].percentage = arrayListSample[0].change;
       currenciesSample[0].percentage = arrayListSample[0].change;
     } else if (index === 1 && val === "buy") {
       arrayListSample[1].price =
@@ -86,6 +88,8 @@ const BodyComponent = () => {
       arrayListSample[1].changehours =
         parseInt(arrayListSample[1].changehours) + parseInt(changeHours);
       arrayList1Sample[1].price = arrayListSample[1].price;
+      arrayList1Sample[1].code = arrayListSample[1].price;
+      arrayList1Sample[1].percentage = arrayListSample[1].change;
       currenciesSample[1].percentage = arrayListSample[1].change;
     } else if (index === 2 && val === "buy") {
       arrayListSample[2].price =
@@ -102,6 +106,8 @@ const BodyComponent = () => {
       arrayListSample[3].changehours =
         parseInt(arrayListSample[3].changehours) + parseInt(changeHours);
       arrayList1Sample[2].price = arrayListSample[3].price;
+      arrayList1Sample[2].code = arrayListSample[3].price;
+      arrayList1Sample[2].percentage = arrayListSample[3].change;
       currenciesSample[2].percentage = arrayListSample[3].change;
     }
     if (index === 0 && val === "sell") {
@@ -112,6 +118,8 @@ const BodyComponent = () => {
       arrayListSample[0].changehours =
         parseInt(arrayListSample[0].changehours) - parseInt(changeHours);
       arrayList1Sample[0].price = arrayListSample[0].price;
+      arrayList1Sample[0].code = arrayListSample[0].price;
+      arrayList1Sample[0].percentage = arrayListSample[0].change;
       currenciesSample[0].percentage = arrayListSample[0].change;
     } else if (index === 1 && val === "sell") {
       arrayListSample[1].price =
@@ -121,6 +129,8 @@ const BodyComponent = () => {
       arrayListSample[1].changehours =
         parseInt(arrayListSample[1].changehours) - parseInt(changeHours);
       arrayList1Sample[1].price = arrayListSample[1].price;
+      arrayList1Sample[1].code = arrayListSample[1].price;
+      arrayList1Sample[1].percentage = arrayListSample[1].change;
       currenciesSample[1].percentage = arrayListSample[1].change;
     } else if (index === 2 && val === "sell") {
       arrayListSample[2].price =
@@ -137,6 +147,8 @@ const BodyComponent = () => {
       arrayListSample[3].changehours =
         parseInt(arrayListSample[3].changehours) - parseInt(changeHours);
       arrayList1Sample[2].price = arrayListSample[3].price;
+      arrayList1Sample[2].code = arrayListSample[3].price;
+      arrayList1Sample[2].percentage = arrayListSample[3].change;
       currenciesSample[2].percentage = arrayListSample[3].change;
     }
     setArrayList(arrayListSample);
@@ -147,7 +159,7 @@ const BodyComponent = () => {
       <Grid container spacing={1}>
         <Grid item xs={8}>
           <Grid container spacing={2}>
-            {arrayList1.map((arr) => {
+            {arrayList1.map((arr, index) => {
               return (
                 <Grid
                   item
@@ -175,7 +187,13 @@ const BodyComponent = () => {
                   <Grid sx={{ display: "flex", margin: "10px" }}>
                     <Grid>
                       <Typography sx={{ fontWeight: "bold" }}>
-                        {arr.code}
+                        {index === 0
+                          ? arr.code + " BTC"
+                          : index === 1
+                          ? arr.code + " ETH"
+                          : index === 2
+                          ? arr.code + " AVAX"
+                          : ""}
                       </Typography>
                       <Typography
                         sx={{
@@ -203,7 +221,7 @@ const BodyComponent = () => {
                           marginLeft: "5px",
                         }}
                       >
-                        {arr.percentage}
+                        {"+" + arr.percentage + "%"}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -235,7 +253,7 @@ const BodyComponent = () => {
                   fontWeight: "bold",
                 }}
               >
-                USD 14.244,55
+                USD 10,000
               </Typography>
               <Grid container sx={{ margin: "10% 0px 6% 4%" }} spacing={2}>
                 {cardData.map((val) => {

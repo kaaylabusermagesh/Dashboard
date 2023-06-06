@@ -4,9 +4,9 @@
       "avatar": "B",
       "avatarColor": "#F39B40",
       "name": "Bitcoin",
-      "code": "10 BTC",
+      "code": "10",
       "price": "10",
-      "percentage": " +1.00%",
+      "percentage": "10",
       "percentageColor": "green",
       "percentagebg": "#E1EFEB"
     },
@@ -14,21 +14,21 @@
       "avatar": "E",
       "avatarColor": "#5F85F1",
       "name": "Ethereum",
-      "code": "10 ETH",
+      "code": "10",
       "price": "10",
-      "percentage": "-0.10%",
-      "percentageColor": "#F4B7BA",
-      "percentagebg": "#FFEAED"
+      "percentage": "10",
+      "percentageColor": "green",
+      "percentagebg": "#E1EFEB"
     },
     {
       "avatar": "A",
       "avatarColor": "#F34033",
       "name": "Avalanche",
-      "code": "10 AVAX",
+      "code": "10",
       "price": "10",
-      "percentage": "-0.10%",
-      "percentageColor": "#F4B7BA",
-      "percentagebg": "#FFEAED"
+      "percentage": "10",
+      "percentageColor": "green",
+      "percentagebg": "#E1EFEB"
     }
   ],
   "Tabledata": [
@@ -97,13 +97,13 @@
       "avatar": "I",
       "avatarColor": "#FFE1E2",
       "name": "Income",
-      "value": "USD 13,220"
+      "value": "USD 5,000"
     },
     {
       "avatar": "E",
       "avatarColor": "#EAEEED",
       "name": "Expense",
-      "value": "USD 2,212"
+      "value": "USD 5,000"
     }
   ],
   "Piedata": [

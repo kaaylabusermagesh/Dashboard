@@ -15,7 +15,7 @@ function Header() {
             sx={{
               m: 1,
               width: "40ch",
-              borderRadius: "100px",
+              // borderRadius: "100px",
               backgroundColor: "#F4F5F7",
               border: "none",
             }}

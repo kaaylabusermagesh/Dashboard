@@ -241,7 +241,6 @@ const Bodybottom = ({ handleClickShare }) => {
                         color: "black !important",
                       },
                     }}
-                    // onClick={(e) => handleClickShare(e, "sell", index)}
                     onClick={(e) => handleOpenModal(e, "sell", index)}
                   >
                     Sell
@@ -252,7 +251,6 @@ const Bodybottom = ({ handleClickShare }) => {
                       marginRight: "10px",
                       textTransform: "none",
                     }}
-                    // onClick={(e) => handleClickShare(e, "buy", index)}
                     onClick={(e) => handleOpenModal(e, "buy", index)}
                   >
                     Buy
