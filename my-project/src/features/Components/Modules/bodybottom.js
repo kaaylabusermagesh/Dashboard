@@ -5,7 +5,14 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Data from "../data.json";
 import Chart from "react-google-charts";
-import { Avatar, Box, Button, Grid, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Grid,
+  TextField,
+  Typography,
+} from "@mui/material";
 import Modal from "@mui/material/Modal";
 
 const style = {
@@ -56,8 +63,16 @@ function a11yProps(index) {
 
 const Bodybottom = ({ handleClickShare }) => {
   const [value, setValue] = React.useState(0);
+  const [price, setPrice] = useState("");
+  const [priceError, setPriceError] = useState(false);
+  const [change, setChange] = useState("");
+  const [changeError, setChangeError] = useState(false);
+  const [changeHours, setChangeHours] = useState("");
+  const [changeHoursError, setChangeHoursError] = useState(false);
   const [title, setTitle] = useState("");
   const [openModal, setOpenModal] = React.useState(false);
+  const [currentIndex, setCurrentIndex] = useState();
+  const [currentVal, setCurrentVal] = useState();
   const handleOpenModal = (e, val, index) => {
     setOpenModal(true);
     if (val === "buy") {
@@ -65,8 +80,15 @@ const Bodybottom = ({ handleClickShare }) => {
     } else {
       setTitle("Sell Modal");
     }
+    setCurrentIndex(index);
+    setCurrentVal(val);
   };
-  const handleCloseModal = () => setOpenModal(false);
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setPriceError(false);
+    setChangeError(false);
+    setChangeHoursError(false);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -85,6 +107,29 @@ const Bodybottom = ({ handleClickShare }) => {
     title: "Company Performance",
     curveType: "function",
     legend: { position: "bottom" },
+  };
+
+  const handleChangeTextfield = (e, val) => {
+    var target = e.target.value;
+    if (val === "price") {
+      setPrice(e.target.value);
+    }
+    if (val === "change") {
+      setChange(e.target.value);
+    }
+    if (val === "changehours") {
+      setChangeHours(e.target.value);
+    }
+
+    if (target !== "" && val === "price") {
+      setPriceError(false);
+    }
+    if (target !== "" && val === "change") {
+      setChangeError(false);
+    }
+    if (target !== "" && val === "changehours") {
+      setChangeHoursError(false);
+    }
   };
 
   return (
@@ -230,7 +275,6 @@ const Bodybottom = ({ handleClickShare }) => {
           Work under construction
         </TabPanel>
       </Box>
-
       <Modal
         open={openModal}
         onClose={handleCloseModal}
@@ -238,9 +282,84 @@ const Bodybottom = ({ handleClickShare }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+            className="modal_typography"
+          >
             {title}
           </Typography>
+          <Grid className="modal_textfield_grid">
+            <TextField
+              id="outlined-basic"
+              label="Price"
+              variant="outlined"
+              type="number"
+              onChange={(e) => {
+                handleChangeTextfield(e, "price");
+              }}
+              error={priceError}
+              helperText={priceError === true ? "Price is reuired" : ""}
+            />
+          </Grid>
+          <Grid className="modal_textfield_grid">
+            <TextField
+              id="outlined-basic"
+              label="Change"
+              variant="outlined"
+              type="number"
+              onChange={(e) => {
+                handleChangeTextfield(e, "change");
+              }}
+              error={changeError}
+              helperText={changeError === true ? "Change is reuired" : ""}
+            />
+          </Grid>
+          <Grid className="modal_textfield_grid">
+            <TextField
+              id="outlined-basic"
+              label="Change Hours"
+              variant="outlined"
+              type="number"
+              onChange={(e) => {
+                handleChangeTextfield(e, "changehours");
+              }}
+              error={changeHoursError}
+              helperText={
+                changeHoursError === true ? "Change Hours is reuired" : ""
+              }
+            />
+          </Grid>
+          <Grid className="modal_textfield_grid">
+            <Button
+              variant="outlined"
+              sx={{ textTransform: "none" }}
+              onClick={handleCloseModal}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              sx={{ textTransform: "none", marginLeft: "10px" }}
+              onClick={(e) =>
+                handleClickShare(
+                  e,
+                  currentVal,
+                  currentIndex,
+                  price,
+                  change,
+                  changeHours,
+                  setPriceError,
+                  setChangeError,
+                  setChangeHoursError,
+                  setOpenModal
+                )
+              }
+            >
+              Submit
+            </Button>
+          </Grid>
         </Box>
       </Modal>
     </Box>

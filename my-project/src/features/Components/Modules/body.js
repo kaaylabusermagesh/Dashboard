@@ -36,55 +36,106 @@ const BodyComponent = () => {
   };
   const [arrayList, setArrayList] = useState(Data.Tabledata);
 
-  const handleClickShare = (e, val, index) => {
+  const handleClickShare = (
+    e,
+    val,
+    index,
+    price,
+    change,
+    changeHours,
+    setPriceError,
+    setChangeError,
+    setChangeHoursError,
+    setOpenModal
+  ) => {
+    console.log("This is the e", e);
+    console.log("This is the val", val);
+    console.log("This is the index", index);
     console.log("This is the arrayList data", arrayList);
     console.log("This is the arrayList1 data", arrayList1);
+    console.log("This is the price data", price);
+    console.log("This is the change data", change);
+    console.log("This is the changeHours data", changeHours);
+
+    if (price === "" || change === "" || changeHours === "") {
+      setPriceError(true);
+      setChangeError(true);
+      setChangeHoursError(true);
+      return;
+    }
+
+    setOpenModal(false);
     var arrayListSample = [...arrayList];
     var arrayList1Sample = [...arrayList1];
     var currenciesSample = [...currencies];
     if (index === 0 && val === "buy") {
-      arrayListSample[0].price = arrayListSample[0].price + 1;
-      arrayListSample[0].change = arrayListSample[0].change + 1;
-      arrayListSample[0].changehours = arrayListSample[0].changehours + 1;
+      console.log("Test for Test is test", arrayListSample[0].price + price);
+      arrayListSample[0].price =
+        parseInt(arrayListSample[0].price) + parseInt(price);
+      arrayListSample[0].change =
+        parseInt(arrayListSample[0].change) + parseInt(change);
+      arrayListSample[0].changehours =
+        parseInt(arrayListSample[0].changehours) + parseInt(changeHours);
       arrayList1Sample[0].price = arrayListSample[0].price;
       currenciesSample[0].percentage = arrayListSample[0].change;
     } else if (index === 1 && val === "buy") {
-      arrayListSample[1].price = arrayListSample[1].price + 1;
-      arrayListSample[1].change = arrayListSample[1].change + 1;
-      arrayListSample[1].changehours = arrayListSample[1].changehours + 1;
+      arrayListSample[1].price =
+        parseInt(arrayListSample[1].price) + parseInt(price);
+      arrayListSample[1].change =
+        parseInt(arrayListSample[1].change) + parseInt(change);
+      arrayListSample[1].changehours =
+        parseInt(arrayListSample[1].changehours) + parseInt(changeHours);
       arrayList1Sample[1].price = arrayListSample[1].price;
       currenciesSample[1].percentage = arrayListSample[1].change;
     } else if (index === 2 && val === "buy") {
-      arrayListSample[2].price = arrayListSample[2].price + 1;
-      arrayListSample[2].change = arrayListSample[2].change + 1;
-      arrayListSample[2].changehours = arrayListSample[2].changehours + 1;
+      arrayListSample[2].price =
+        parseInt(arrayListSample[2].price) + parseInt(price);
+      arrayListSample[2].change =
+        parseInt(arrayListSample[2].change) + parseInt(change);
+      arrayListSample[2].changehours =
+        parseInt(arrayListSample[2].changehours) + parseInt(changeHours);
     } else if (index === 3 && val === "buy") {
-      arrayListSample[3].price = arrayListSample[3].price + 1;
-      arrayListSample[3].change = arrayListSample[3].change + 1;
-      arrayListSample[3].changehours = arrayListSample[3].changehours + 1;
+      arrayListSample[3].price =
+        parseInt(arrayListSample[3].price) + parseInt(price);
+      arrayListSample[3].change =
+        parseInt(arrayListSample[3].change) + parseInt(change);
+      arrayListSample[3].changehours =
+        parseInt(arrayListSample[3].changehours) + parseInt(changeHours);
       arrayList1Sample[2].price = arrayListSample[3].price;
       currenciesSample[2].percentage = arrayListSample[3].change;
     }
     if (index === 0 && val === "sell") {
-      arrayListSample[0].price = arrayListSample[0].price - 1;
-      arrayListSample[0].change = arrayListSample[0].change - 1;
-      arrayListSample[0].changehours = arrayListSample[0].changehours - 1;
+      arrayListSample[0].price =
+        parseInt(arrayListSample[0].price) - parseInt(price);
+      arrayListSample[0].change =
+        parseInt(arrayListSample[0].change) - parseInt(change);
+      arrayListSample[0].changehours =
+        parseInt(arrayListSample[0].changehours) - parseInt(changeHours);
       arrayList1Sample[0].price = arrayListSample[0].price;
       currenciesSample[0].percentage = arrayListSample[0].change;
     } else if (index === 1 && val === "sell") {
-      arrayListSample[1].price = arrayListSample[1].price - 1;
-      arrayListSample[1].change = arrayListSample[1].change - 1;
-      arrayListSample[1].changehours = arrayListSample[1].changehours - 1;
+      arrayListSample[1].price =
+        parseInt(arrayListSample[1].price) - parseInt(price);
+      arrayListSample[1].change =
+        parseInt(arrayListSample[1].change) - parseInt(change);
+      arrayListSample[1].changehours =
+        parseInt(arrayListSample[1].changehours) - parseInt(changeHours);
       arrayList1Sample[1].price = arrayListSample[1].price;
       currenciesSample[1].percentage = arrayListSample[1].change;
     } else if (index === 2 && val === "sell") {
-      arrayListSample[2].price = arrayListSample[2].price - 1;
-      arrayListSample[2].change = arrayListSample[2].change - 1;
-      arrayListSample[2].changehours = arrayListSample[2].changehours - 1;
+      arrayListSample[2].price =
+        parseInt(arrayListSample[2].price) - parseInt(price);
+      arrayListSample[2].change =
+        parseInt(arrayListSample[2].change) - parseInt(change);
+      arrayListSample[2].changehours =
+        parseInt(arrayListSample[2].changehours) - parseInt(changeHours);
     } else if (index === 3 && val === "sell") {
-      arrayListSample[3].price = arrayListSample[3].price - 1;
-      arrayListSample[3].change = arrayListSample[3].change - 1;
-      arrayListSample[3].changehours = arrayListSample[3].changehours - 1;
+      arrayListSample[3].price =
+        parseInt(arrayListSample[3].price) - parseInt(price);
+      arrayListSample[3].change =
+        parseInt(arrayListSample[3].change) - parseInt(change);
+      arrayListSample[3].changehours =
+        parseInt(arrayListSample[3].changehours) - parseInt(changeHours);
       arrayList1Sample[2].price = arrayListSample[3].price;
       currenciesSample[2].percentage = arrayListSample[3].change;
     }

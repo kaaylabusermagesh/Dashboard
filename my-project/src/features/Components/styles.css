@@ -28,9 +28,9 @@
   height: 80vh;
   overflow-y: scroll;
 } */
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
   border: none !important;
-}
+} */
 .tab_styles {
   text-transform: none !important;
 }
@@ -47,4 +47,15 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 5px;
+}
+.modal_textfield_grid {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal_typography {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
