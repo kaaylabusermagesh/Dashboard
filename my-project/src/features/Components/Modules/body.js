@@ -1,7 +1,6 @@
 import { Avatar, Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Bodybottom from "./bodybottom";
-import { PieChart } from "react-minimal-pie-chart";
 import Data from "../data.json";
 import { Chart } from "react-google-charts";
 
@@ -17,11 +16,10 @@ export const options = {
   is3D: false,
 };
 
-function BodyComponent() {
-  const arrayList1 = Data.Carddata;
-  const currencies = Data.currencies;
+const BodyComponent = () => {
+  const [arrayList1] = useState(Data.Carddata);
+  const [currencies] = useState(Data.currencies);
   const cardData = Data.CardList;
-  // const pievalue = Data.Piedata;
 
   const data1 = [
     ["Month", "Binance", "Litecoin"],
@@ -36,6 +34,63 @@ function BodyComponent() {
     curveType: "function",
     legend: { position: "bottom" },
   };
+  const [arrayList, setArrayList] = useState(Data.Tabledata);
+
+  const handleClickShare = (e, val, index) => {
+    console.log("This is the arrayList data", arrayList);
+    console.log("This is the arrayList1 data", arrayList1);
+    var arrayListSample = [...arrayList];
+    var arrayList1Sample = [...arrayList1];
+    var currenciesSample = [...currencies];
+    if (index === 0 && val === "buy") {
+      arrayListSample[0].price = arrayListSample[0].price + 1;
+      arrayListSample[0].change = arrayListSample[0].change + 1;
+      arrayListSample[0].changehours = arrayListSample[0].changehours + 1;
+      arrayList1Sample[0].price = arrayListSample[0].price;
+      currenciesSample[0].percentage = arrayListSample[0].change;
+    } else if (index === 1 && val === "buy") {
+      arrayListSample[1].price = arrayListSample[1].price + 1;
+      arrayListSample[1].change = arrayListSample[1].change + 1;
+      arrayListSample[1].changehours = arrayListSample[1].changehours + 1;
+      arrayList1Sample[1].price = arrayListSample[1].price;
+      currenciesSample[1].percentage = arrayListSample[1].change;
+    } else if (index === 2 && val === "buy") {
+      arrayListSample[2].price = arrayListSample[2].price + 1;
+      arrayListSample[2].change = arrayListSample[2].change + 1;
+      arrayListSample[2].changehours = arrayListSample[2].changehours + 1;
+    } else if (index === 3 && val === "buy") {
+      arrayListSample[3].price = arrayListSample[3].price + 1;
+      arrayListSample[3].change = arrayListSample[3].change + 1;
+      arrayListSample[3].changehours = arrayListSample[3].changehours + 1;
+      arrayList1Sample[2].price = arrayListSample[3].price;
+      currenciesSample[2].percentage = arrayListSample[3].change;
+    }
+    if (index === 0 && val === "sell") {
+      arrayListSample[0].price = arrayListSample[0].price - 1;
+      arrayListSample[0].change = arrayListSample[0].change - 1;
+      arrayListSample[0].changehours = arrayListSample[0].changehours - 1;
+      arrayList1Sample[0].price = arrayListSample[0].price;
+      currenciesSample[0].percentage = arrayListSample[0].change;
+    } else if (index === 1 && val === "sell") {
+      arrayListSample[1].price = arrayListSample[1].price - 1;
+      arrayListSample[1].change = arrayListSample[1].change - 1;
+      arrayListSample[1].changehours = arrayListSample[1].changehours - 1;
+      arrayList1Sample[1].price = arrayListSample[1].price;
+      currenciesSample[1].percentage = arrayListSample[1].change;
+    } else if (index === 2 && val === "sell") {
+      arrayListSample[2].price = arrayListSample[2].price - 1;
+      arrayListSample[2].change = arrayListSample[2].change - 1;
+      arrayListSample[2].changehours = arrayListSample[2].changehours - 1;
+    } else if (index === 3 && val === "sell") {
+      arrayListSample[3].price = arrayListSample[3].price - 1;
+      arrayListSample[3].change = arrayListSample[3].change - 1;
+      arrayListSample[3].changehours = arrayListSample[3].changehours - 1;
+      arrayList1Sample[2].price = arrayListSample[3].price;
+      currenciesSample[2].percentage = arrayListSample[3].change;
+    }
+    setArrayList(arrayListSample);
+  };
+
   return (
     <Box>
       <Grid container spacing={1}>
@@ -78,7 +133,7 @@ function BodyComponent() {
                           marginLeft: "3px",
                         }}
                       >
-                        {arr.price}
+                        {"$" + arr.price}
                       </Typography>
                     </Grid>
                     <Grid
@@ -245,7 +300,7 @@ function BodyComponent() {
                               fontSize: "10px",
                             }}
                           >
-                            {curr.percentage}
+                            {"+" + curr.percentage + "%"}
                           </Typography>
                         </Grid>
                       );
@@ -289,10 +344,10 @@ function BodyComponent() {
         </Grid>
       </Grid>
       <Grid>
-        <Bodybottom />
+        <Bodybottom handleClickShare={handleClickShare} />
       </Grid>
     </Box>
   );
-}
+};
 
 export default BodyComponent;
