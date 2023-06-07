@@ -4,7 +4,7 @@
       "avatar": "B",
       "avatarColor": "#F39B40",
       "name": "Bitcoin",
-      "code": "10",
+      "code": "0.10",
       "price": "10",
       "percentage": "10",
       "percentageColor": "green",
@@ -14,7 +14,7 @@
       "avatar": "E",
       "avatarColor": "#5F85F1",
       "name": "Ethereum",
-      "code": "10",
+      "code": "0.10",
       "price": "10",
       "percentage": "10",
       "percentageColor": "green",
@@ -24,7 +24,7 @@
       "avatar": "A",
       "avatarColor": "#F34033",
       "name": "Avalanche",
-      "code": "10",
+      "code": "0.10",
       "price": "10",
       "percentage": "10",
       "percentageColor": "green",
@@ -38,8 +38,8 @@
       "abbre": "BTC",
       "name": "Bitcoin",
       "price": 10,
-      "change": 10,
-      "changehours": 10
+      "change": 0.1,
+      "changehours": 0.1
     },
     {
       "avatar": "E",
@@ -47,8 +47,8 @@
       "abbre": "ETH",
       "name": "Ethereum",
       "price": 10,
-      "change": 10,
-      "changehours": 10
+      "change": 0.1,
+      "changehours": 0.1
     },
     {
       "avatar": "A",
@@ -56,8 +56,8 @@
       "abbre": "ADA",
       "name": "Caidona",
       "price": 10,
-      "change": 10,
-      "changehours": 10
+      "change": 0.1,
+      "changehours": 0.1
     },
     {
       "avatar": "A",
@@ -65,8 +65,8 @@
       "abbre": "Avax",
       "name": "Avalanche",
       "price": 10,
-      "change": 10,
-      "changehours": 10
+      "change": 0.1,
+      "changehours": 0.1
     }
   ],
   "currencies": [
